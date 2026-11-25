@@ -1,0 +1,100 @@
+jQuery(document).ready(function($) {
+
+    // var lang = $('html').attr('lang');
+    // // console.log(lang);
+    // if (lang == 'vi') {
+    //     var replacements = {
+    //         "Home": "Trang chủ",
+            
+    //         // Thêm các cặp chuỗi khác tại đây
+    //     };
+    
+    //     // Duyệt tất cả các node text trong trang
+    //     $('*').contents().filter(function () {
+    //         return this.nodeType === 3; // nodeType 3 = text
+    //     }).each(function () {
+    //         var text = this.nodeValue;
+    //         for (var key in replacements) {
+    //             if (replacements.hasOwnProperty(key)) {
+    //                 var regex = new RegExp(key, "g"); // tạo regex toàn cục
+    //                 text = text.replace(regex, replacements[key]);
+    //             }
+    //         }
+    //         this.nodeValue = text;
+    //     });
+    // }
+
+    // Scroll to top when the button is clicked
+    $('.back-to-top-button').click(function(e) {
+        e.preventDefault();
+        $('html, body').animate({scrollTop : 0}, 800);
+        return false;
+    });
+
+    // single product js 
+    var varfiationFormHeight = $('.single_variation_wrap').height();
+    var metaHeight = $('.product-info .product_meta').height();
+    var titleHeight = $('.product-info .product-title-container').height();
+
+    // alert(varfiationFormHeight);
+    $('.product-info>.col-inner').css('min-height', varfiationFormHeight + titleHeight);
+    $('.product-info .text-right').css('min-height', titleHeight + metaHeight);
+    var minHeight = $('.product-info .cart:not(.variations_form)').height();
+    // console.log(minHeight);
+    $('body').find('.product-info>.col-inner').css("min-height", minHeight+"px");
+
+    $('.woocommerce-tabs .tab-panels .panel').each(function() {
+        var height = $(this).height();
+        if(height  > '300') {
+            $(this).addClass('limit');
+            $(this).append('<div class="readmore-wrapper"><button class="button is-link icon readmore-button secondary lowercase"><i class="icon-angle-down" aria-hidden="true"></i></button></div>')
+        }
+    });
+
+    $('.woocommerce-tabs .tab-panels .panel .readmore-button').on('click', function(e) { 
+        e.preventDefault();
+        console.log('readmore');
+        $(this).closest('.panel').removeClass('limit');
+        $('.readmore-wrapper').remove();
+    })
+    $('#project_cat_filter .filter>a').click(function(e) {
+        e.preventDefault();
+        $(this).parent().toggleClass('active');
+    });
+    $('.shop-link>a').click(function() {
+        // console.log('shop link clicked');
+        $(document).find('.nav-dropdown .nav>li:nth-child(2)>a').click();
+        var shopLink = $(this).attr('href'); // console.log(shopLink);
+        $(document).find('.nav-dropdown .nav>li:first-child>a').attr('href',shopLink);
+    })
+    $(document).find('.nav-dropdown .nav>li:first-child>a').on('click', function(e) {
+        var shopLink = $(this).attr('href');
+        e.preventDefault();
+        // redirect to shop link 
+        window.location.href = shopLink;
+    });
+
+    $(document).find('.product-info table.variations th.label').on('click', function() {
+        $(this).toggleClass('active');
+        $(this).next().toggleClass('active');
+    });
+
+    // equal height 
+    var priceHeight = $('.product-price-container').height();
+    if(priceHeight) { 
+        $('h1.product-title').css('min-height', priceHeight + 'px');
+    }
+
+    // fix  slider arrow  position
+    $('.fix-arrow').each(function() {
+        $(this).on( 'ready.flickity', function() {
+            var sliderHeight = $('.box-image img', this).height();
+            var arrowTOp = "";
+            if(sliderHeight) { 
+                arrowTOp = ((sliderHeight/2)-21) + 'px';
+                $('.flickity-prev-next-button', this).css('top', arrowTOp);
+                console.log('arrow top:' + arrowTOp);
+            }
+        })
+    })
+}); 

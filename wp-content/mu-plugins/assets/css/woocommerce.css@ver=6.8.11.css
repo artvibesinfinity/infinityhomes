@@ -1,0 +1,111 @@
+.webshop-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.webshop-list .button-webshop {
+  display: inline-flex;
+  align-items: center;
+  color: #fff;
+  padding: 5px 40px;
+  width: 333px;
+  gap: 10px;
+  height: 45px;
+  margin-bottom: 5px;
+}
+@media (max-width: 540px) {
+  .webshop-list .button-webshop {
+    width: 100%;
+  }
+}
+.webshop-list .button-webshop img {
+  width: 50px;
+  height: 34px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.webshop-list .button-webshop.shopee {
+  background: linear-gradient(-180deg, #f53d2d, #f63);
+}
+.webshop-list .button-webshop.lazada {
+  background: linear-gradient(-180deg, #0f1768, #0316b6);
+}
+.webshop-list .button-webshop.tiki {
+  background: #0368ff;
+}
+.webshop-list .button-webshop.tiktok {
+  background: #000;
+}
+
+.mbws_single-meta {
+  padding-right: 10px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+.mbws_single-meta .rank-star {
+  display: flex;
+  align-items: center;
+  border-right: 1px solid rgba(0, 0, 0, 0.09);
+  padding-right: 10px;
+}
+.mbws_single-meta .rank-star .label {
+  padding-right: 5px;
+}
+.mbws_single-meta .rank-star .star {
+  display: flex;
+  align-items: center;
+}
+
+.woocommerce-order-received .woocommerce-order .woocommerce-table .product-total {
+  width: 30%;
+}
+.woocommerce-order-received .woocommerce-order .large-5 .entry-content {
+  background-color: #f5f8fb;
+  border-radius: 10px;
+  border: none;
+  box-shadow: none;
+}
+.woocommerce-order-received .woocommerce-order .large-5 .entry-content .woocommerce-notice {
+  color: var(--wp--preset--color--primary);
+  font-size: 1.3rem;
+}
+.woocommerce-order-received .woocommerce-order .woocommerce-customer-details .woocommerce-column--billing-address {
+  width: 100%;
+}
+.woocommerce-order-received .woocommerce-order .woocommerce-customer-details .woocommerce-column--billing-address address p {
+  margin-bottom: 0;
+}
+.woocommerce-order-received .woocommerce-order .woocommerce-customer-details .woocommerce-column--shipping-address {
+  display: none;
+}
+
+.mbws-rating {
+  color: #ffb800;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+}
+.mbws-rating .star {
+  position: relative;
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.mbws-rating .star-active {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+.mbws-rating .star-active span {
+  overflow: hidden;
+  display: flex;
+}
+.mbws-rating .count-rating {
+  color: #343434;
+}/*# sourceMappingURL=woocommerce.css.map */
