@@ -1,0 +1,6 @@
+# secrets
+.env
+# WordPress core, plugins and 1.5 GB of uploads are installed/downloaded by setup.sh + import.sh
+wordpress/
+# site export: contains user emails, keep it out of a public repo
+data/*.xml
